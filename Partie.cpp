@@ -1,10 +1,10 @@
 /*************************************************/
-// Nom du projet: Jeu du nombre à deviner
+// Nom du projet: Jeu du nombre Ã  deviner
 // Nom du fichier: Partie.cpp
 // Version : 1.0
 // Nom du programmeur: MP Pinaud
-// Date de création : 05/02/2021
-// Rôle du fichier: Contient le code des méthodes d'une partie
+// Date de crÃ©ation : 05/02/2021
+// RÃ´le du fichier: Contient le code des mÃ©thodes d'une partie
 // Nom des composants utilises: CJoueur
 //                              iostream
 //                              ctime
@@ -20,12 +20,12 @@ using namespace std;
 
 
     // Nom :CPartie (constructeur)
-    // Rôle : initialise la partie avec le nombre d'essais max, les nombres minimal et maximal à trouver
-    // Paramètres d'entrée:
+    // RÃ´le : initialise la partie avec le nombre d'essais max, les nombres minimal et maximal Ã  trouver
+    // ParamÃ¨tres d'entrÃ©e:
     //              le nombre d'essais max,
     //              le nombre minimal,
     //              le nombre maximal
-    // Sortie : la partie qui est créée
+    // Sortie : la partie qui est crÃ©Ã©e
 
      CPartie::CPartie ( int nbmin, int nbmax, int nbessaismax)
     {
@@ -37,30 +37,30 @@ using namespace std;
 
 
     // Nom :JouerPartie
-    // Rôle : Tire un nombre aléatoire et démarre la partie
-    //        A la fin, met à jour les informations du joueur
-    // Parametre d'entrée/sortie : le joueur
-    // Entrée : la partie qui va se jouer
+    // RÃ´le : Tire un nombre alÃ©atoire et dÃ©marre la partie
+    //        A la fin, met Ã  jour les informations du joueur
+    // Parametre d'entrÃ©e/sortie : le joueur
+    // EntrÃ©e : la partie qui va se jouer
 
 
     void CPartie::Jouer (CJoueur &un_joueur, CJoueur &un_prenom)
     {
          int nombre_propose; // nombre saisi par l'utilisateur
 
-         int nombreADeviner= this->TirerNombreMystere(); // nombre à deviner
+         int nombreADeviner= this->TirerNombreMystere(); // nombre Ã  deviner
 
-        int i; //  nombre de tentatives effectuées par le joueur
+        int i; //  nombre de tentatives effectuÃ©es par le joueur
 
         i = 0;
         bool gagne = false;
 
         cout << "-------------"<< endl;
-        cout << un_joueur.Nom() << " " << un_prenom.Nom() << " joue" <<endl;
+        cout << un_joueur.Nom() << " " << un_prenom.Prenom() << " joue" <<endl;
         cout << "-------------"<< endl;
 
         while (i < 4 && gagne == false)
         {
-            i++; // on incrémente le nombre de tentative
+            i++; // on incrÃ©mente le nombre de tentative
             cout << "Choisir un nombre entre " << this->nbMin << " et " << this->nbMax << endl;
 
             cin >> nombre_propose;
@@ -95,9 +95,9 @@ using namespace std;
 
 
     // Nom :TirerNombreMystere
-    // Rôle : Tire aléatoirement un nombre à deviner entre 0 et 10
-    // Valeur de retour : nombre à deviner
-    // Entrée : la partie pour laquelle est tirée le nombre mystère
+    // RÃ´le : Tire alÃ©atoirement un nombre Ã  deviner entre 0 et 10
+    // Valeur de retour : nombre Ã  deviner
+    // EntrÃ©e : la partie pour laquelle est tirÃ©e le nombre mystÃ¨re
 
     int CPartie::TirerNombreMystere()
     {
