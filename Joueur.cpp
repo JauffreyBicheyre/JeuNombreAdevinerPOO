@@ -1,10 +1,10 @@
 /*************************************************/
-// Nom du projet: Jeu du nombre à deviner
+// Nom du projet: Jeu du nombre Ã  deviner
 // Nom du fichier: Joueur.cpp
 // Version : 1.0
 // Nom du programmeur: MP Pinaud
-// Date de création : 05/02/2021
-// Rôle du fichier: Contient le code des méthodes du joueur
+// Date de crÃ©ation : 05/02/2021
+// RÃ´le du fichier: Contient le code des mÃ©thodes du joueur
 // Nom des composants utilises:
 // Historique du fichier:
 /*************************************************/
@@ -13,46 +13,33 @@ using namespace std;
 #include "../include/Joueur.h"
 
     // Nom :CJoueur  Constructeur
-    // Rôle : Initialise toutes les informations du joueur.
-    //        Le nombre de tentatives, de parties gagnées et de parties jouées seront à 0.
-    // Paramètre d'entrée :
+    // RÃ´le : Initialise toutes les informations du joueur.
+    //        Le nombre de tentatives, de parties gagnÃ©es et de parties jouÃ©es seront Ã  0.
+    // ParamÃ¨tre d'entrÃ©e :
     //                  un_nom : le nom du joueur
-    // Sortie : le joueur créé
+    // Sortie : le joueur crÃ©Ã©
 
-    CJoueur::CJoueur(string un_nom)
+    CJoueur::CJoueur(string un_nom,string un_prenom)
     {
         this->nom = un_nom;
+        this->prenom = un_prenom;
         this->nbPartiesGagnees = 0;
         this->nbPartiesJouees=0;
         this->nbTentatives=0;
-    }
-
-    CJoueur::CJoueur3(string un_prenom)
-    {
-        this->nom = un_prenom;
-        this->nbPartiesGagnees = 0;
-        this->nbPartiesJouees=0;
-        this->nbTentatives=0;
-    }
-
-     CJoueur::CJoueur2(string un_nom2)
-    {
-        this->nom = un_nom2;
-        this->nbPartiesGagnees = 0;
-        this->nbPartiesJouees =0;
-        this->nbTentatives =0;
     }
 
      CJoueur::~CJoueur()
      {
+         cout << this->Nom() << this->Prenom() << endl;
+         cout << this << endl;
      }
     // Nom : MajResultats
-    // Rôle : met à jour les informations d'un joueur
-    // Paramètres d'entrée:
+    // RÃ´le : met Ã  jour les informations d'un joueur
+    // ParamÃ¨tres d'entrÃ©e:
     //              - le nombre d'essais
-    //              - gagne qui vaut true si le joueur a gagné, false sinon
-    // Entrée/sortie :
-    //              le joueur dont on met à jour les résultats
+    //              - gagne qui vaut true si le joueur a gagnÃ©, false sinon
+    // EntrÃ©e/sortie :
+    //              le joueur dont on met Ã  jour les rÃ©sultats
 
 
     void CJoueur::MajResultats(int nbEssais, bool gagne)
@@ -66,15 +53,15 @@ using namespace std;
     }
 
     // Nom : Resultats
-    // Rôle : indique les résultats d'un joueur
-    //        le nombre de parties gagnées, le nombre de parties perdues, le nombre d'essais total
-    //        La fonction N'affiche PAS les informations à l'écran
-    // Paramètres de sortie:
-    //                      - le nombre de succès,
-    //                      - le nombre d'échecs
+    // RÃ´le : indique les rÃ©sultats d'un joueur
+    //        le nombre de parties gagnÃ©es, le nombre de parties perdues, le nombre d'essais total
+    //        La fonction N'affiche PAS les informations Ã  l'Ã©cran
+    // ParamÃ¨tres de sortie:
+    //                      - le nombre de succÃ¨s,
+    //                      - le nombre d'Ã©checs
     //                      - le nombre total d'essais
-    // Entrée :
-    //            -le joueur dont on veut les résultats
+    // EntrÃ©e :
+    //            -le joueur dont on veut les rÃ©sultats
 
     void CJoueur::Resultats(int& nbsucces, int& nbechec, int& nbessais)
     {
@@ -92,13 +79,18 @@ using namespace std;
 
 
     // Nom :Nom
-    // Rôle : retourne le nom du joueur
-    // Paramètres d'entrée: le joueur dont on veut le nom
+    // RÃ´le : retourne le nom du joueur
+    // ParamÃ¨tres d'entrÃ©e: le joueur dont on veut le nom
     // Valeur de retour : nom du joueur
-    // Entrée : le joueur dont on veut le nom
+    // EntrÃ©e : le joueur dont on veut le nom
 
     string CJoueur::Nom()
     {
         return nom;
+    }
+
+    string CJoueur::Prenom()
+    {
+        return prenom;
     }
 
