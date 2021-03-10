@@ -112,20 +112,33 @@ int main()
     cout << "----------------------------------------------"<< endl;
     //Affichage score final joueur 1 et 2
 
-    if((nbsuccestwo<nbsucces)&&(nbessais<nbessaistwo))
+    if(nbsuccestwo<nbsucces)
     {
         cout << "le premier est" << joueur.Nom() << endl;
         cout << "le deuxième est" << joueur2.Nom();
     }
-    else if((nbsuccestwo>nbsucces)&&(nbessais>nbessaistwo))
+    else if(nbsuccestwo>nbsucces)
     {
         cout << "le premier est" << joueur2.Nom() << endl;
         cout << "le deuxième est" << joueur.Nom();
     }
     else
+    {
+        if(nbessais<nbessaistwo)
         {
-        cout << "Les joueurs sont ex aequo"<< endl;
+        cout << "le premier est" << joueur.Nom() << endl;
+        cout << "le deuxième est" << joueur2.Nom();
         }
+        else if(nbessais>nbessaistwo)
+        {
+        cout << "le premier est" << joueur2.Nom() << endl;
+        cout << "le deuxième est" << joueur.Nom();
+        }
+        else
+        {
+        cout << "ex-eaquos" << endl;
+        }
+    }
 
     return 0;
 }
