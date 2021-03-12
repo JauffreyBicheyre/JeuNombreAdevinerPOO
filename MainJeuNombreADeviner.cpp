@@ -88,13 +88,13 @@ int main()
 
     for (int i = 0; i <nbPartiestwo; i++)
     {
-        cout << "----------------------------------------------"<< endl;
+        cout <<"----------------------------------------------"<< endl;
         cout <<"Partie Numero : " << i+1 << endl;
         cout << "----------------------------------------------"<< endl;
 
-        CPartie partie (0,10,4); // nombre à deviner entre 0 et 10, nombre de tentatives maximum 4
+        CPartie partie2 (0,10,4); // nombre à deviner entre 0 et 10, nombre de tentatives maximum 4
 
-        partie.Jouer(joueur2,joueur2); // exécution d'une partie pour le joueur
+        partie2.Jouer(joueur2,joueur2); // exécution d'une partie pour le joueur
     }
 
 
@@ -105,7 +105,7 @@ int main()
     // Récupération des résultats du joueur 2
     int nbsuccestwo,nbechecstwo, nbessaistwo;
     float averageplayer2;
-    joueur2.Resultats(nbsucces,nbechecstwo,nbessaistwo); // les paramètres sont passés par référence
+    joueur2.Resultats(nbsuccestwo,nbechecstwo,nbessaistwo); // les paramètres sont passés par référence
     joueur2.CalculAverage(averageplayer2);
 
     // Affichage des résultats
@@ -117,92 +117,104 @@ int main()
 
     //Affichage score final joueur 1 et 2
 
-        if(nbsuccestwo<nbsucces)
-    {
+    if(nbsuccestwo<nbsucces)
+        {
         cout << "Le premier est " <<joueur.Prenom()<<  joueur.Nom() << endl;
         cout << "Le deuxieme est " << joueur2.Prenom()<< joueur2.Nom() << endl;
-    }
+        }
     else if(nbsuccestwo>nbsucces)
-    {
+        {
         cout << "Le premier est " <<joueur2.Prenom()<<  joueur2.Nom() << endl;
         cout << "Le deuxieme est " <<joueur.Prenom()<<  joueur.Nom() << endl;
-    }
+        }
     else
-    {
-        if(nbessais<nbessaistwo)
         {
-            cout << "Le premier est" << joueur.Prenom()<< joueur.Nom() << endl;
-            cout << "le deuxieme est" << joueur2.Prenom() << joueur2.Nom() << endl;
-        }
-        else if(nbessais>nbessaistwo)
-        {
-            cout << "Le premier est :" << joueur2.Prenom()<< joueur2.Nom() << endl;
-            cout << "Le deuxieme est :" << joueur.Prenom()<< joueur.Nom() << endl;
-        }
-        else
-        {
-             cout << "Les joueurs sont ex-aquos :" <<joueur2.Prenom()<<  joueur2.Nom() << " " << joueur.Prenom()<< joueur.Nom() << "\n";
-            int nbPartiestwo=nbParties;
-        do
-        {
-            for (int i = 0; i <nbParties; i++)
+            if(nbessais<nbessaistwo)
+            {
+                cout << "Le premier est " <<joueur.Prenom()<<  joueur.Nom() << endl;
+                cout << "Le deuxieme est " << joueur2.Prenom()<< joueur2.Nom() << endl;
+            }
+            else if(nbessaistwo>nbessais)
+            {
+                cout << "Le premier est " <<joueur2.Prenom()<<  joueur2.Nom() << endl;
+                cout << "Le deuxieme est " <<joueur.Prenom()<<  joueur.Nom() << endl;
+            }
+            else
+            {
+                cout << "Les joueurs sont ex-eaquos" << endl;
+                do
                 {
+                    nbPartiestwo = nbParties;
+                    for (int i = 0; i <nbPartiestwo; i++)
+                        {
+                            cout << "----------------------------------------------"<< endl;
+                            cout <<"Partie Numero : " << i+1 << endl;
+                            cout << "----------------------------------------------"<< endl;
 
-              cout << "----------------------------------------------"<< endl;
-              cout <<"Partie Numero : " << i+1 << endl;
-              cout << "----------------------------------------------"<< endl;
+                            CPartie partie2 (0,10,4); // nombre à deviner entre 0 et 10, nombre de tentatives maximum 4
 
-              CPartie partie (0,10,4);  // nombre à deviner entre 0 et 10, nombre de tentatives maximum  pour joueur 1
-              CPartie partie2 (0,10,4); // nombre à deviner entre 0 et 10, nombre de tentatives maximum 4 pour joueur 2
+                            partie2.Jouer(joueur2,joueur2); // exécution d'une partie pour le joueur
+                        }
+                        cout << "----------------------------------------------"<< endl;
+                        cout << "Affichage des resultats du joueur " << joueur2.Prenom() << " " << joueur2.Nom() << endl;
+                        cout << "----------------------------------------------"<< endl;
 
-              partie.Jouer(joueur,joueur);
-              partie2.Jouer(joueur2,joueur2); // exécution d'une partie pour le joueur
-                 }
-                 int nbsucces, nbechecs, nbessais;
-              float averageplayer1;
-              joueur.Resultats(nbsucces, nbechecs, nbessais);  // les paramètres sont passés par référence
-              joueur.CalculAverage(averageplayer1);
-        // Affichage des résultats
-              cout << "Nombre de parties gagnees : " << nbsucces << endl;
-              cout << "Nombre de parties perdues : " << nbechecs << endl;
-              cout << "Nombre de tentatives totales : " << nbessais << endl;
-              cout << "Nombre de tentatives en moyenne par partie : " << averageplayer1 << endl;
+    // Récupération des résultats du joueur 2
+                        int nbsuccestwo,nbechecstwo, nbessaistwo;
+                        float averageplayer2;
+                        joueur2.Resultats(nbsuccestwo,nbechecstwo,nbessaistwo); // les paramètres sont passés par référence
+                        joueur2.CalculAverage(averageplayer2);
 
-              cout << "----------------------------------------------"<< endl;
+    // Affichage des résultats
+                        cout << "Nombre de parties gagnees : " << nbsuccestwo << endl;
+                        cout << "Nombre de parties perdues : " << nbechecstwo << endl;
+                        cout << "Nombre de tentatives totales : " << nbessaistwo << endl;
+                        cout << "Nombre moyenne du joueur2 de parties et tentatives : " << averageplayer2 << endl;
+                        cout << "----------------------------------------------"<< endl;
 
-               cout <<"-----------------------------------------------"<< endl;
-               cout <<"Affichage des resultats du joueur" << joueur2.Prenom() << " " << joueur2.Nom() << endl;
-               cout << "----------------------------------------------"<< endl;
+                        for (int i = 0; i <nbParties; i++)
+                            {
+        cout << "----------------------------------------------"<< endl;
+        cout <<"Partie Numero : " << i+1 << endl;
+        cout << "----------------------------------------------"<< endl;
 
-                int nbsuccestwo, nbechecstwo, nbessaistwo;
-               float averageplayer2;
-              joueur2.Resultats(nbsuccestwo, nbechecstwo, nbessaistwo);  // les paramètres sont passés par référence
-              joueur2.CalculAverage(averageplayer2);
+        CPartie partie (0,10,4); // nombre à deviner entre 0 et 10, nombre de tentatives maximum 4
 
-        // Affichage des résultats
-              cout << "Nombre de parties gagnees : " << nbsuccestwo << endl;
-             cout << "Nombre de parties perdues : " << nbechecstwo << endl;
-            cout << "Nombre de tentatives totales : " << nbessaistwo << endl;
-            cout << "Nombre de tentatives en moyenne par partie : " << averageplayer2 << endl;
+        partie.Jouer(joueur,joueur); // exécution d'une partie pour le joueur
+                            }
 
-            cout << "----------------------------------------------"<< endl;
 
-            cout << "----------------------------------------------"<< endl;
-            cout << "Affichage des resultats du joueur " << joueur.Prenom() << " " << joueur.Nom() << endl;
-            cout << "----------------------------------------------"<< endl;
-        }while(nbessais!=nbessaistwo);
-        if(nbsuccestwo<nbsucces)
-                {
-               cout << "Le premier est " <<joueur.Prenom()<<  joueur.Nom() << endl;
-               cout << "Le deuxieme est " << joueur2.Prenom()<< joueur2.Nom() << endl;
-               }
-             else
-               {
-              cout << "Le premier est " <<joueur2.Prenom()<<  joueur2.Nom() << endl;
-               cout << "Le deuxieme est " <<joueur.Prenom()<<  joueur.Nom() << endl;
-               }
+    cout << "----------------------------------------------"<< endl;
+    cout << "Affichage des resultats du joueur " << joueur.Nom() << " " << joueur.Prenom() << endl;
+    cout << "----------------------------------------------"<< endl;
+
+    // Récupération des résultats du joueur
+    int nbsucces, nbechecs, nbessais; float averageplayer1;
+    joueur.Resultats(nbsucces, nbechecs, nbessais);  // les paramètres sont passés par référence
+    joueur.CalculAverage(averageplayer1);
+
+    // Affichage des résultats
+    cout << "Nombre de parties gagnees : " << nbsucces << endl;
+    cout << "Nombre de parties perdues : " << nbechecs << endl;
+    cout << "Nombre de tentatives totales : " << nbessais << endl;
+    cout << "Nombre moyenne du joueur de parties et tentatives : " << averageplayer1 << endl;
+
+    cout << "----------------------------------------------"<< endl;
+
+    if(nbsuccestwo<nbsucces)
+                     {
+        cout << "Le premier est " <<joueur.Prenom()<<  joueur.Nom() << endl;
+        cout << "Le deuxieme est " << joueur2.Prenom()<< joueur2.Nom() << endl;
+                        }
+        if(nbsuccestwo>nbsucces)
+        {
+        cout << "Le premier est " <<joueur2.Prenom()<<  joueur2.Nom() << endl;
+        cout << "Le deuxieme est " <<joueur.Prenom()<<  joueur.Nom() << endl;
         }
-    }
+
+                }while((nbessais==nbessaistwo) && (nbsucces!=nbsuccestwo));
+            }
+        }
     return 0;
 }
 
